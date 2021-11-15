@@ -1,20 +1,8 @@
 import styled from "styled-components";
+import { Button } from "../shared";
 
-const SButton = styled.input`
-    width: 100%;
-    border-radius: 3px;
-    border: none;
-    margin-top: 15px;
-    background-color: ${(props) => props.theme.accent};
-    color: white;
-    text-align: center;
-    padding: 8px 0px;
-    font-weight: 600;
-    cursor: pointer;
+const AuthButton = styled(Button)`
+    opacity: 0.4;
 `;
 
-const Button = (props) => {
-    return <SButton {...props}></SButton>;
-};
-
-export default Button;
+export default AuthButton;

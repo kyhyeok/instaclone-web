@@ -1,21 +1,13 @@
 import { faFacebookSquare, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styled from "styled-components";
 import AuthLayout from "../components/auth/AuthLayout";
 import BottomBox from "../components/auth/BottomBox";
-import Button from "../components/auth/Button";
+import AuthButton from "../components/auth/Button";
 import FormBox from "../components/auth/FormBox";
 import Input from "../components/auth/Input";
 import Separator from "../components/auth/Separator.js";
+import { FacebookLoginButton } from "../components/shared";
 import routes from "../routes";
-
-const FacebookLogin = styled.div`
-    color: #385285;
-    span {
-        margin-left: 10px;
-        font-weight: 600;
-    }
-`;
 
 const Login = () => {
     return (
@@ -27,13 +19,13 @@ const Login = () => {
                 <form>
                     <Input type="text" placeholder="Username" />
                     <Input type="password" placeholder="Password" />
-                    <Button type="submit" value="Log in" />
+                    <AuthButton type="submit" value="Log in" />
                 </form>
                 <Separator />
-                <FacebookLogin>
+                <FacebookLoginButton>
                     <FontAwesomeIcon icon={faFacebookSquare} />
                     <span>Log in with Facebook</span>
-                </FacebookLogin>
+                </FacebookLoginButton>
             </FormBox>
             <BottomBox cta="Don't have an account?" linkText="Sign Up" link={routes.signUp} />
         </AuthLayout>

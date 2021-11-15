@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { BaseBox } from "../shared";
 
-const SBottomBox = styled(BaseBox)`
+const AutnBottomBox = styled(BaseBox)`
     padding: 20px 0;
     text-align: center;
     a {
@@ -14,10 +14,10 @@ const SBottomBox = styled(BaseBox)`
 
 const BottomBox = ({ cta, link, linkText }) => {
     return (
-        <SBottomBox>
+        <AutnBottomBox>
             <span>{cta}</span>
             <Link to={link}>{linkText}</Link>
-        </SBottomBox>
+        </AutnBottomBox>
     );
 };
 
