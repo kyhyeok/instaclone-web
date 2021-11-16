@@ -13,12 +13,10 @@ import { useForm } from "react-hook-form";
 import FormError from "../components/auth/FormError";
 
 const Login = () => {
-    const { register, watch, handleSubmit, errors, formState } = useForm({
+    const { register, handleSubmit, errors, formState } = useForm({
         mode: "onChange",
     });
-    const onSubmitValid = (data) => {
-        // console.log(data);
-    };
+    const onSubmitValid = (data) => {};
 
     return (
         <AuthLayout>
