@@ -7,6 +7,7 @@ import AuthButton from "../components/auth/Button";
 import FormBox from "../components/auth/FormBox";
 import Input from "../components/auth/Input";
 import Separator from "../components/auth/Separator";
+import PageTitle from "../components/PageTitle";
 import { FacebookLoginButton, FatLink } from "../components/shared";
 import routes from "../routes";
 
@@ -38,6 +39,7 @@ const FacebookLogin = styled(FacebookLoginButton)`
 const SignUp = () => {
     return (
         <AuthLayout>
+            <PageTitle title="Sign up" />
             <FormBox>
                 <HeaderContaineer>
                     <FontAwesomeIcon icon={faInstagram} size="3x" />

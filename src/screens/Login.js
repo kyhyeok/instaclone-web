@@ -8,10 +8,12 @@ import Input from "../components/auth/Input";
 import Separator from "../components/auth/Separator.js";
 import { FacebookLoginButton } from "../components/shared";
 import routes from "../routes";
+import PageTitle from "../components/PageTitle";
 
 const Login = () => {
     return (
         <AuthLayout>
+            <PageTitle title="Login" />
             <FormBox>
                 <div>
                     <FontAwesomeIcon icon={faInstagram} size="3x" />
