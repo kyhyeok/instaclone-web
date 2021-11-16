@@ -55,7 +55,7 @@ const Login = () => {
     const [login, { loading }] = useMutation(LOGIN_MUTATION, {
         onCompleted,
     });
-    const onSubmitValid = (data) => {
+    const onSubmitValid = () => {
         if (loading) {
             return;
         }
@@ -107,7 +107,7 @@ const Login = () => {
                     <FormError message={errors?.password?.message} />
                     <AuthButton
                         type="submit"
-                        value={loading ? "Loading..." : "Login"}
+                        value={loading ? "Loading..." : "Log In"}
                         disabled={!formState.isValid || loading}
                     />
                     <FormError message={errors?.result?.message} />
