@@ -37,3 +37,19 @@ export const FacebookLoginButton = styled.div`
         font-weight: 600;
     }
 `;
+
+const BaseNotification = styled.span`
+    color: #234e8d;
+    border-top: 3px solid #38b2ac;
+    margin-top: 20px;
+    background-color: #e6fffa;
+    font-weight: 600;
+    padding: 10px 5px;
+    width: 100%;
+`;
+
+export const Notification = ({ message }) => {
+    return message === "" || !message ? null : (
+        <BaseNotification>{message}</BaseNotification>
+    );
+};

@@ -9,13 +9,14 @@ import AuthButton from "../components/auth/Button";
 import FormBox from "../components/auth/FormBox";
 import Input from "../components/auth/Input";
 import Separator from "../components/auth/Separator.js";
-import { FacebookLoginButton } from "../components/shared";
+import { FacebookLoginButton, Notification } from "../components/shared";
 import routes from "../routes";
 import PageTitle from "../components/PageTitle";
 import { useForm } from "react-hook-form";
 import FormError from "../components/auth/FormError";
 import { gql, useMutation } from "@apollo/client";
 import { logUserIn } from "../apollo";
+import { useLocation } from "react-router-dom";
 
 const LOGIN_MUTATION = gql`
     mutation login($username: String!, $password: String!) {
@@ -28,6 +29,8 @@ const LOGIN_MUTATION = gql`
 `;
 
 const Login = () => {
+    const location = useLocation();
+
     const {
         register,
         handleSubmit,
@@ -38,6 +41,10 @@ const Login = () => {
         clearErrors,
     } = useForm({
         mode: "onChange",
+        defaultValues: {
+            username: location?.state?.username || "",
+            password: location?.state?.password || "",
+        },
     });
     const onCompleted = (data) => {
         const {
@@ -77,6 +84,7 @@ const Login = () => {
                 <div>
                     <FontAwesomeIcon icon={faInstagram} size="3x" />
                 </div>
+                <Notification message={location?.state?.message} />
                 <form onSubmit={handleSubmit(onSubmitValid)}>
                     <Input
                         ref={register({
