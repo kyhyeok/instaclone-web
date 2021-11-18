@@ -5,6 +5,7 @@ import { useEffect } from "react";
 const ME_QUERY = gql`
     query me {
         me {
+            id
             username
             avatar
         }
@@ -13,7 +14,7 @@ const ME_QUERY = gql`
 
 const useUser = () => {
     const hasToken = useReactiveVar(isLoggedInVar);
-    const { data, error } = useQuery(ME_QUERY, {
+    const { data } = useQuery(ME_QUERY, {
         skip: !hasToken,
     });
     useEffect(() => {
@@ -21,7 +22,7 @@ const useUser = () => {
             logUserOut();
         }
     }, [data]);
-    return;
+    return { data };
 };
 
 export default useUser;
