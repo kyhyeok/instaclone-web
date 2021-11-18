@@ -28,18 +28,18 @@ const Wrapper = styled.div`
     align-items: center;
 `;
 
-const Column = styled.div``;
-
-const Icon = styled.span`
-    margin-left: 20px;
-`;
-
 const Button = styled.span`
     background-color: ${(props) => props.theme.accent};
     border-radius: 4px;
     padding: 4px 15px;
     color: white;
     font-weight: 600;
+`;
+
+const Column = styled.div``;
+
+const Icon = styled.span`
+    margin-left: 20px;
 `;
 
 const Header = () => {
@@ -65,7 +65,7 @@ const Header = () => {
                             </Icon>
                         </>
                     ) : (
-                        <Link to={routes.home}>
+                        <Link href={routes.home}>
                             <Button>Login</Button>
                         </Link>
                     )}
