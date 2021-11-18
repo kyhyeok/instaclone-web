@@ -16,7 +16,7 @@ const SSeparator = styled.div`
         margin: 0 10px;
         font-weight: 600;
         font-size: 12px;
-        color: #8e8e8e;
+        color: ${(props) => props.theme.borderColor};
     }
 `;
 

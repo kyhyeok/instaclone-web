@@ -3,7 +3,7 @@ import reset from "styled-reset";
 
 export const lightTheme = {
     accent: "#0095f6",
-    bgColor: "#fafafa",
+    bgColor: "#f2f2f2",
     fontColor: "rgb(38, 38, 38)",
     borderColor: "rgb(219, 219, 219)",
 };
@@ -12,7 +12,7 @@ export const darkTheme = {
     fontColor: "white",
     borderColor: "#0095f6",
     bgColor: "#000",
-    accent: "rgb(219, 219, 219)",
+    accent: "#0095f6",
 };
 
 export const GlobalStyles = createGlobalStyle`
