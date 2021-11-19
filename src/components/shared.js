@@ -11,6 +11,10 @@ export const FatLink = styled.span`
     color: rgb(142, 142, 142);
 `;
 
+export const FatText = styled.span`
+    font-weight: 600;
+`;
+
 export const Button = styled.input`
     width: 100%;
     border-radius: 3px;
