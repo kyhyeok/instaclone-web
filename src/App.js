@@ -10,40 +10,44 @@ import Home from "./screens/Home";
 import NotFound from "./screens/NotFound";
 import SignUp from "./screens/SignUp";
 import { darkTheme, GlobalStyles, lightTheme } from "./styles";
+import Profile from "./screens/Profile";
 
 function App() {
-    const isLoggedIn = useReactiveVar(isLoggedInVar);
-    const darkMode = useReactiveVar(darkModeVar);
-    return (
-        <ApolloProvider client={client}>
-            <HelmetProvider>
-                <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-                    <GlobalStyles />
-                    <Router>
-                        <Switch>
-                            <Route path={routes.home} exact>
-                                {isLoggedIn ? (
-                                    <Layout>
-                                        <Home />
-                                    </Layout>
-                                ) : (
-                                    <Login />
-                                )}
-                            </Route>
-                            {!isLoggedIn ? (
-                                <Route path={routes.signUp}>
-                                    <SignUp />
-                                </Route>
-                            ) : null}
-                            <Route>
-                                <NotFound />
-                            </Route>
-                        </Switch>
-                    </Router>
-                </ThemeProvider>
-            </HelmetProvider>
-        </ApolloProvider>
-    );
+  const isLoggedIn = useReactiveVar(isLoggedInVar);
+  const darkMode = useReactiveVar(darkModeVar);
+  return (
+    <ApolloProvider client={client}>
+      <HelmetProvider>
+        <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+          <GlobalStyles />
+          <Router>
+            <Switch>
+              <Route path={routes.home} exact>
+                {isLoggedIn ? (
+                  <Layout>
+                    <Home />
+                  </Layout>
+                ) : (
+                  <Login />
+                )}
+              </Route>
+              {!isLoggedIn ? (
+                <Route path={routes.signUp}>
+                  <SignUp />
+                </Route>
+              ) : null}
+              <Route path={`/users/:username`}>
+                <Profile />
+              </Route>
+              <Route>
+                <NotFound />
+              </Route>
+            </Switch>
+          </Router>
+        </ThemeProvider>
+      </HelmetProvider>
+    </ApolloProvider>
+  );
 }
 
 export default App;
