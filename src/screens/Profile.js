@@ -167,6 +167,15 @@ const Profile = () => {
         },
       },
     });
+    const { me } = userData;
+    cache.modify({
+      id: `User:${me.username}`,
+      fields: {
+        totalFollowing(prev) {
+          return prev - 1;
+        },
+      },
+    });
   };
 
   const [unfollowUser] = useMutation(UNFOLLOW_USER_MUTATION, {
@@ -175,7 +184,7 @@ const Profile = () => {
     },
     update: unfollowUserUpdate,
   });
-  const followUserComplete = (data) => {
+  const followUserCompleted = (data) => {
     const {
       followUser: { ok },
     } = data;
@@ -194,13 +203,22 @@ const Profile = () => {
         },
       },
     });
+    const { me } = userData;
+    cache.modify({
+      id: `User:${me.username}`,
+      fields: {
+        totalFollowing(prev) {
+          return prev + 1;
+        },
+      },
+    });
   };
 
   const [followUser] = useMutation(FOLLOW_USER_MUTATION, {
     variables: {
       username,
     },
-    onCompleted: followUserComplete,
+    onCompleted: followUserCompleted,
   });
   const getButton = (seeProfile) => {
     const { isMe, isFollowing } = seeProfile;
